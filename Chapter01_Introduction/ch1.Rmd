@@ -2,7 +2,7 @@
 title: "ISLR, chapter 1"
 author: "ms"
 date: "12/11/2019"
-output: html_document
+output: github_document
 ---
 
 
