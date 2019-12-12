@@ -1,0 +1,36 @@
+---
+title: "ISLR, chapter 2"
+author: "ms"
+date: "12/11/2019"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r setup, echo = FALSE, include=FALSE}
+library(ISLR)
+library(tidyverse)
+here::here()
+theme_set(theme_light())
+```
+
+### Figure 2.1
+Description from ISLR:
+
+>FIGURE 2.1. The `Advertising` data set. The plot displays `sales`, in thousands of units, as a function of `TV`, `radio`, and `newspaper` budgets, in thousands of dollars, for 200 diﬀerent markets. In each plot we show the simple least squares ﬁt of `sales` to that variable, as described in Chapter 3. In other words, each blue line represents a simple model that can be used to predict `sales` using `TV`, `radio`, and `newspaper`, respectively.
+
+Getting this data was not straightforward. I located this data in an indirect reference in GitHub Inguen-toan's [repo](https://github.com/nguyen-toan/ISLR). Forked this repo for posterity, and will be using this instead
+
+```{r}
+Advertising <- read_csv('')
+```
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

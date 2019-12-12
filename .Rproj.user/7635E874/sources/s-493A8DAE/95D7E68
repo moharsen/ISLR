@@ -1,0 +1,26 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1576125366848.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1614879626",
+    "id" : "95D7E68",
+    "lastKnownWriteTime" : 1576125676,
+    "last_content_update" : 1576125676949,
+    "path" : "D:/ISLR/Chapter01_Introduction/ch1.Rmd",
+    "project_path" : "Chapter01_Introduction/ch1.Rmd",
+    "properties" : {
+        "chunk_output_type" : "console",
+        "cursorPosition" : "63,7",
+        "scrollLine" : "24"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_markdown"
+}

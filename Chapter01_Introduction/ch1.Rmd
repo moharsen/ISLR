@@ -1,0 +1,96 @@
+---
+title: "ISLR, chapter 1"
+author: "ms"
+date: "12/11/2019"
+output: html_document
+---
+
+
+Require to load the ISLR package. Also, Tidyverse - my favorite swiss army knife
+```{r echo=FALSE}
+library(ISLR)
+library(tidyverse)
+here::here()
+theme_set(theme_light())
+```
+
+### Figure 1.1
+
+This requires us to load the `Wage` data. Let's load the data and look at it
+```{r}
+Wage = as_tibble(Wage)
+Wage
+
+```
+
+Note that education has a lot of text which may not be useful for us. Let us convert that to a factor like follows:
+
+```{r}
+df <- Wage %>% 
+  mutate(education = as.factor(as.numeric(substr(education, 1,1)))) 
+  
+```
+
+
+Now the plot
+```{r}
+p1 <- df %>% 
+  ggplot(aes(x = age, y = wage))+
+  geom_point()+
+  geom_smooth(se = FALSE)
+
+p2 <- df %>% 
+  ggplot(aes(x = year, y = wage))+
+  geom_point()+
+  stat_smooth(method = "lm", 
+              formula = y ~ x)
+p3 <- df %>% 
+  ggplot(aes(x = education, y = wage, fill = education))+
+  geom_boxplot()
+
+ggpubr::ggarrange(p1, p2, p3, nrow = 1)
+```
+
+Save the plot
+
+```{r}
+ggsave(here::here("figures", "Chapter1","figure1_1.jpg"))
+```
+
+### Figure 1.2
+This plot uses `Smarket` data. Loading...
+```{r}
+Smarket <- as_tibble(Smarket)
+Smarket
+```
+
+Gather the dataset for facet-wrap. This is not probably what the authors did (_they may have done this using base-r, who knows?_) but this is the fastest and neatest.
+```{r}
+smarket <- Smarket %>% 
+  select(Lag1, Lag2, Lag3, Direction) %>% 
+  gather(key = "Lag", value = "Percentage change", c(1:3)) 
+```
+Now plot
+```{r}
+smarket %>% 
+  ggplot(aes(x = Direction, y = `Percentage change`, fill = Direction))+
+  geom_boxplot()+
+  facet_wrap(~Lag, 
+             strip.position = "top",
+             labeller = as_labeller(c(Lag1 = "Yesterday", 
+                                      Lag2 = "2 days previous",
+                                      Lag3 = "3 days previous")))+
+  ylab("Percentage change in S&P")+
+  xlab("Today's Direction")
+
+ggsave(here::here("figures","Chapter1","figure1_2.jpg"))
+  
+```
+
+### Figure 1.3
+We will come back to this after we cover quadratic discriminant analysis later
+
+### Figure 1.4
+We will come back to this after we cover principal component analysis later
+
+
